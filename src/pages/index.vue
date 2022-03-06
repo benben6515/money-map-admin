@@ -10,14 +10,14 @@ const go = () => {
 
 <template>
   <div>
-    <div i-carbon-campsite text-4xl inline-block />
+    <div i-carbon-campsite text-2rem inline-block />
     <p>
       <a rel="noreferrer" href="https://www.instagram.com/_moneymap/?hl=zh-tw" target="_blank">
-        Money Map
+        MoneyMap
       </a>
     </p>
     <p>
-      <em text-sm op75>Money Map 學員查詢</em>
+      <em text-sm op75>MoneyMap 學員查詢</em>
     </p>
 
     <div py-4 />
