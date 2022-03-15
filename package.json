@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "@vueuse/core": "^7.7.0",
+    "airtable": "^0.11.2",
     "axios": "^0.26.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
     "vue": "^3.2.31",
     "vue-router": "^4.0.12"
