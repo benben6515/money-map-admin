@@ -3,7 +3,7 @@ import { isDark, toggleDark } from '~/composables'
 </script>
 
 <template>
-  <nav text-xl mt-6 inline-flex gap-2>
+  <nav text-xl mt-6 inline-flex gap-2 class="footer-wrapper">
     <button class="icon-btn !outline-none" @click="toggleDark()">
       <div v-if="isDark" i-carbon-moon />
       <div v-else i-carbon-sun />
@@ -19,3 +19,11 @@ import { isDark, toggleDark } from '~/composables'
     />
   </nav>
 </template>
+
+<style lang="scss">
+.footer-wrapper {
+  position: fixed;
+  top: 0;
+  right: 2rem;
+}
+</style>
