@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CardList: typeof import('./src/components/Homepage/CardList.vue')['default']
     Counter: typeof import('./src/components/Globle/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Toast: typeof import('./src/components/Globle/Toast.vue')['default']
