@@ -1,31 +1,14 @@
 <script setup lang="ts">
 // import axios from 'axios'
-import { getDataByEmail } from '~/services'
-import CardList from '~/components/Homepage/CardList.vue'
-import { name } from '~/composables'
+import { state } from '~/composables'
+import MissionList from '~/components/Homepage/MissionList.vue'
+import RewardList from '~/components/Homepage/RewardList.vue'
 
 const router = useRouter()
-const isShowData = ref(false)
-const toggleShowData = () => {
-  isShowData.value = !isShowData.value
-}
 
-// const router = useRouter()
-interface AirtableData {
-  coin: number
-  name: string
-  email: string
-  prize: string[]
-  mission: string[]
-}
+// console.log(state)
+if (!state.userData.name) router.push('/')
 
-interface State {
-  airtableData: AirtableData[]
-}
-
-const state: State = reactive({
-  airtableData: [],
-})
 </script>
 
 <template>
@@ -44,12 +27,13 @@ const state: State = reactive({
       <!-- <p>{{ state.airtableData }}</p> -->
       <div class="flex flex-col justify-center items-center pb-12">
         <h3 class="text-blue-900 text-4xl font-bold m-4 border-b border-blue-900 w-60">
-          HI, {{ name }} 你好
+          HI, {{ state.userData.name }} 你好
         </h3>
 
-        <CardList type-name="mission" />
+        <MissionList />
 
-        <CardList type-name="reward" />
+        <RewardList />
+
         <button class="m-3 text-sm btn" @click="router.back()">
           返回
         </button>

@@ -1,3 +1,13 @@
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
-export const name = ref('')
+export const email = ref('')
+
+export const state = reactive<{
+  userData: any
+  missionList: any
+  rewardList: any
+}>({
+  userData: null,
+  missionList: null,
+  rewardList: null,
+})

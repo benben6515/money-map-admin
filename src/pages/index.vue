@@ -1,13 +1,47 @@
 <script setup lang="ts">
-import { name } from '~/composables'
-
-const isShowData = ref(false)
+import { email, state } from '~/composables'
+import { getDataByEmail, getMissionList, getRewardList } from '~/services'
 
 const router = useRouter()
 
-const go = () => {
-  if (name.value) router.push('/me')
+const isActive = ref(false)
+
+// to to me page
+const go = async() => {
+  // eslint-disable-next-line no-alert
+  if (!email.value) return alert('Please fill your email')
+  try {
+    const res = await getDataByEmail(email.value)
+    // eslint-disable-next-line no-alert
+    if (!res) return alert('Not found!')
+    state.userData = res.data[0]
+    router.push('/me')
+  }
+  catch (err) {
+    console.log(err)
+  }
 }
+
+try {
+  (async() => {
+    const missionRes = await getMissionList()
+    const rewardRes = await getRewardList()
+    if (!missionRes && !rewardRes) {
+      // eslint-disable-next-line no-alert
+      alert('Please, try latter')
+    }
+    else {
+      state.missionList = missionRes.data
+      state.rewardList = rewardRes.data
+      isActive.value = true
+    }
+  })()
+  isActive.value = true
+}
+catch (err) {
+  console.log(err)
+}
+
 </script>
 
 <template>
@@ -23,10 +57,10 @@ const go = () => {
 
       <div py-30 />
 
-      <div v-if="!isShowData">
+      <div>
         <input
           id="input"
-          v-model="name"
+          v-model="email"
           placeholder="請輸入你的購課 Email"
           type="text"
           autocomplete="false"
@@ -41,7 +75,7 @@ const go = () => {
         >
 
         <div>
-          <button class="m-3 text-sm btn" :disabled="!name" @click="go">
+          <button class="m-3 text-sm btn" :disabled="!email || !isActive" @click="go">
             查詢
           </button>
         </div>
