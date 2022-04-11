@@ -9,7 +9,10 @@ const isActive = ref(false)
 // to to me page
 const go = async() => {
   // eslint-disable-next-line no-alert
-  if (!email.value) return alert('Please fill your email')
+  if (state.isLoading) return
+  state.errorMessage = ''
+  if (!email.value.includes('@')) return state.errorMessage = '請輸入正確的 Email！'
+  state.isLoading = true
   try {
     const res = await getDataByEmail(email.value)
     // eslint-disable-next-line no-alert
@@ -18,7 +21,11 @@ const go = async() => {
     router.push('/me')
   }
   catch (err) {
-    console.log(err)
+    state.errorMessage = '忙碌中，請稍後再試！'
+    console.error(err)
+  }
+  finally {
+    state.isLoading = false
   }
 }
 
@@ -39,7 +46,7 @@ try {
   isActive.value = true
 }
 catch (err) {
-  console.log(err)
+  console.error(err)
 }
 
 </script>
@@ -72,12 +79,17 @@ catch (err) {
           border="~ rounded gray-200 dark:gray-700"
           outline="none active:none"
           @keydown.enter="go"
+          @input="state.errorMessage = ''"
         >
 
         <div>
-          <button class="m-3 text-sm btn" :disabled="!email || !isActive" @click="go">
-            查詢
+          <button class="m-3 text-sm btn" :disabled="!email || !isActive || state.isLoading" @click="go">
+            {{ state.isLoading ? '查詢中 ...' : '查詢' }}
           </button>
+        </div>
+
+        <div v-if="state.errorMessage">
+          {{ state.errorMessage }}
         </div>
       </div>
     </div>

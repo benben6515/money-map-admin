@@ -5,11 +5,11 @@ import { state } from '~/composables'
 const { userData, rewardList } = state
 
 const userRewardList = computed(() => {
-  return rewardList.filter((e: any) => userData.rewards.includes(e.id))
+  return rewardList?.filter((e: any) => userData?.rewards.includes(e.id))
 })
 
 const cardTitle = computed(() => {
-  return `我總共兌換了${userData.rewards.length}個獎勵`
+  return `我總共兌換了 ${userData?.rewards?.length} 個獎勵`
 })
 const cardItemTitle = computed(() => {
   return '兌換的獎勵'
@@ -43,9 +43,10 @@ const cardTextColor = computed(() => {
         :key="reward.id"
       >
         <p
-          class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+          class="flex items-center justify-between p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
         >
-          <span class="flex-1 ml-3 whitespace-nowrap">{{ reward.name }}</span>
+          <span class="ml-3 whitespace-nowrap">{{ reward.name }}</span>
+          <span class="ml-3 whitespace-nowrap">{{ reward.rewardCoins }}</span>
         </p>
       </li>
     </ul>

@@ -1,13 +1,21 @@
 <script setup lang="ts">
 // import axios from 'axios'
-import { state } from '~/composables'
+import { email, state } from '~/composables'
 import MissionList from '~/components/Homepage/MissionList.vue'
 import RewardList from '~/components/Homepage/RewardList.vue'
 
 const router = useRouter()
 
 // console.log(state)
-if (!state.userData.name) router.push('/')
+if (!state?.userData || !state.userData.name) {
+  state.errorMessage = '找不到使用者'
+  router.push('/')
+}
+
+const goBack = () => {
+  email.value = ''
+  router.back()
+}
 
 </script>
 
@@ -27,14 +35,14 @@ if (!state.userData.name) router.push('/')
       <!-- <p>{{ state.airtableData }}</p> -->
       <div class="flex flex-col justify-center items-center pb-12">
         <h3 class="text-blue-900 text-4xl font-bold m-4 border-b border-blue-900 w-60">
-          HI, {{ state.userData.name }} 你好
+          HI, {{ state?.userData?.name || '--' }} 你好
         </h3>
 
         <MissionList />
 
         <RewardList />
 
-        <button class="m-3 text-sm btn" @click="router.back()">
+        <button class="m-3 text-sm btn" @click="goBack()">
           返回
         </button>
       </div>

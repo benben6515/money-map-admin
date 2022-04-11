@@ -6,11 +6,11 @@ import { state } from '~/composables'
 const { userData, missionList } = state
 
 const userMissionList = computed(() => {
-  return missionList.filter((e: any) => userData.missions.includes(e.id))
+  return missionList?.filter((e: any) => userData?.missions.includes(e.id))
 })
 
 const cardTitle = computed(() => {
-  return `我總共完成了${userData.missions.length}個任務`
+  return `我總共完成了 ${userData?.missions?.length} 個任務`
 })
 const cardItemTitle = computed(() => {
   return '完成的任務'
@@ -44,9 +44,10 @@ const cardTextColor = computed(() => {
         :key="mission.id"
       >
         <p
-          class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+          class="flex items-center justify-between p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
         >
-          <span class="flex-1 ml-3 whitespace-nowrap">{{ mission.name }}</span>
+          <span class="ml-3 whitespace-nowrap">{{ mission.name }}</span>
+          <span class="ml-3 whitespace-nowrap">{{ mission.missionCoins }}</span>
         </p>
       </li>
     </ul>
