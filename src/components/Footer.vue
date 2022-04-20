@@ -25,6 +25,8 @@ import { isDark, toggleDark } from '~/composables'
   font-family: '微軟正黑體'
 }
 .footer-wrapper {
+  // TODO: maybe use this
+  display: none !important;
   position: fixed;
   top: 0;
   right: 2rem;

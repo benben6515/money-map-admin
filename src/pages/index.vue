@@ -35,7 +35,7 @@ try {
     const rewardRes = await getRewardList()
     if (!missionRes && !rewardRes) {
       // eslint-disable-next-line no-alert
-      alert('Please, try latter')
+      state.errorMessage = '忙碌中，請稍後再試！'
     }
     else {
       state.missionList = missionRes.data
@@ -68,16 +68,17 @@ catch (err) {
         <input
           id="input"
           v-model="email"
-          placeholder="請輸入你的購課 Email"
+          placeholder="購課 Email"
           type="text"
           autocomplete="false"
           p="x-4 y-2"
           m-10
           w="250px"
-          text="center"
+          text="center mm-primary"
           bg="transparent"
-          border="~ rounded gray-200 dark:gray-700"
+          border="~ rounded-100 dotted 2 mm-primary"
           outline="none active:none"
+          class="placeholder:text-mm-primary"
           @keydown.enter="go"
           @input="state.errorMessage = ''"
         >
@@ -88,7 +89,7 @@ catch (err) {
           </button>
         </div>
 
-        <div v-if="state.errorMessage">
+        <div v-if="state.errorMessage" class="text-gray-200">
           {{ state.errorMessage }}
         </div>
       </div>

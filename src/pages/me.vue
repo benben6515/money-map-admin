@@ -22,25 +22,37 @@ const goBack = () => {
 <template>
   <div class="wrapper">
     <div>
-      <!-- <p>
-        <a
-          rel="noreferrer"
-          href="https://www.instagram.com/_moneymap/?hl=zh-tw"
-          target="_blank"
-        >MoneyMap</a>
-      </p> -->
-
-      <div py-15 />
+      <div py-5 />
 
       <!-- <p>{{ state.airtableData }}</p> -->
       <div class="flex flex-col justify-center items-center pb-12">
-        <h3 class="text-blue-900 text-4xl font-bold m-4 border-b border-blue-900 w-60">
+        <h3 class="text-blue-900 text-4xl font-bold m-4 pb-4 border-b-3 border-blue-900 min-w-60">
           HI, {{ state?.userData?.name || '--' }} 你好
         </h3>
 
-        <MissionList />
+        <div class="flex flex-wrap justify-center items-start gap-4">
+          <MissionList />
+          <RewardList />
+        </div>
 
-        <RewardList />
+        <div class="flex flex-wrap justify-center items-start gap-4">
+          <div>
+            <p class="py-6 px-8 rounded bg-yellow-400 text-blue-700 text-lg font-bold">
+              MM 幣存款
+            </p>
+            <p class="text-lg font-900 p-4 text-yellow-300 text-shadow-lg">
+              剩餘： {{ state?.userData?.totalCoins || 0 }} MM 幣
+            </p>
+          </div>
+          <div>
+            <p class="py-6 px-8 rounded bg-yellow-400 text-blue-700 text-lg font-bold">
+              MM 幣支出
+            </p>
+            <p class="text-lg font-900 p-4 text-red-500 text-shadow-lg">
+              支出： {{ state?.userData?.totalCost || 0 }} MM 幣
+            </p>
+          </div>
+        </div>
 
         <button class="m-3 text-sm btn" @click="goBack()">
           返回

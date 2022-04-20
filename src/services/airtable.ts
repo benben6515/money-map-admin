@@ -1,6 +1,6 @@
 import axios from 'axios'
 // import dotenv from 'dotenv'
-// const { BASEURL } = dotenv.config()
+// const { BASE_URL } = dotenv.config()
 
 // const baseURL = 'http://localhost:5000/api'
 const baseURL = '/api'

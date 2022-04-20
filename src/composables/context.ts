@@ -6,12 +6,14 @@ export const state = reactive<{
   userData: any
   missionList: any
   rewardList: any
+  totalCost: any
   errorMessage: string
   isLoading: boolean
 }>({
   userData: null,
   missionList: null,
   rewardList: null,
+  totalCost: 0,
   errorMessage: '',
   isLoading: false,
 })
