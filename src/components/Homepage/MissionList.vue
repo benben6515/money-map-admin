@@ -9,11 +9,11 @@ const userMissionList = computed(() => {
 })
 
 const cardTitle = computed(() => {
-  return `我總共完成了 ${userData?.missions?.length} 個任務`
+  return `你已經完成了 ${userData?.missions?.length} 個任務`
 })
 
 const cardTextColor = computed(() => {
-  return 'text-blue-600'
+  return 'text-mm-secondary'
 })
 
 </script>
@@ -24,18 +24,18 @@ const cardTextColor = computed(() => {
   >
     <p
       :class="['font-900', cardTextColor]"
-      text="1.5rem"
+      text="1.8rem"
       my-4
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 space-y-3">
+    <ul class="item-wrapper my-4 space-y-2">
       <li
         v-for="mission in userMissionList"
         :key="mission.id"
       >
         <p
-          class="bg-transparent flex items-center justify-between p-3 text-base font-bold text-gray-500 rounded-lg hover:text-gray-900 group"
+          class="bg-transparent flex items-center justify-between py-1 text-base font-bold text-gray-500 rounded-lg hover:text-gray-900 group"
         >
           <span class="ml-3 whitespace-nowrap">{{ mission.name }}</span>
           <span class="ml-3 whitespace-nowrap">{{ mission.missionCoins }} MM 幣</span>
@@ -47,7 +47,7 @@ const cardTextColor = computed(() => {
 
 <style lang="scss" scoped>
 
-$maxWrapperHeight: 240px;
+$maxWrapperHeight: 200px;
 .item-wrapper {
   max-height: $maxWrapperHeight;
   overflow: auto;
@@ -60,7 +60,7 @@ $maxWrapperHeight: 240px;
     width: 5px;
     height: 8px;
     border-radius: 3px;
-    background-color: rgb(37, 99, 235);
+    background-color: #1F6781;
   }
 }
 </style>

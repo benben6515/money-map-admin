@@ -9,11 +9,11 @@ const userRewardList = computed(() => {
 })
 
 const cardTitle = computed(() => {
-  return `我總共兌換了 ${userData?.rewards?.length} 個獎勵`
+  return `你已經兌換了 ${userData?.rewards?.length} 個獎勵`
 })
 
 const cardTextColor = computed(() => {
-  return 'text-red-600'
+  return 'text-mm-warning'
 })
 
 if (userData) {
@@ -32,12 +32,12 @@ if (userData) {
   >
     <p
       :class="['font-900', cardTextColor]"
-      text="1.5rem"
+      text="1.8rem"
       my-4
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 space-y-3">
+    <ul class="item-wrapper my-4 space-y-2">
       <li
         v-for="reward in userRewardList"
         :key="reward.id"
@@ -54,7 +54,7 @@ if (userData) {
 </template>
 
 <style lang="scss" scoped>
-$maxWrapperHeight: 240px;
+$maxWrapperHeight: 220px;
 
 .item-wrapper {
   max-height: $maxWrapperHeight;
@@ -68,7 +68,7 @@ $maxWrapperHeight: 240px;
     width: 5px;
     height: 8px;
     border-radius: 4px;
-    background-color: rgb(220, 38, 38);
+    background-color: #BB4747;
   }
 }
 </style>
