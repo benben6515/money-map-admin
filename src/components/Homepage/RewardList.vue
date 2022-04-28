@@ -28,7 +28,7 @@ if (userData) {
 
 <template>
   <div
-    class="px-4 my-3 max-w-sm min-w-xs rounded-lg sm:px-6"
+    class="my-3 max-w-xs min-w-xs bg-transparent rounded-lg border-5px border-mm-warning"
   >
     <p
       :class="['font-900', cardTextColor]"
@@ -37,26 +37,31 @@ if (userData) {
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 space-y-2">
+    <ul class="item-wrapper my-4 p-2 space-y-2">
       <li
         v-for="reward in userRewardList"
         :key="reward.id"
       >
         <p
-          class="bg-transparent flex items-center justify-between p-3 text-base font-bold text-gray-500 bg-gray-50 rounded-lg hover:text-gray-900 group"
+          class="bg-transparent flex items-center justify-between py-1 text-base font-bold text-gray-500 bg-gray-50 rounded-lg hover:text-gray-900 group"
         >
-          <span class="ml-3 whitespace-nowrap">{{ reward.name }}</span>
+          <span class="ml-3 whitespace-nowrap truncate">{{ reward.name }}</span>
           <span class="ml-3 whitespace-nowrap">{{ reward.rewardCoins }} MM 幣</span>
         </p>
       </li>
     </ul>
+
+    <div class="bg-mm-warning rounded-md text-2xl font-bold p-6 m--1">
+      你已經支出 {{ state?.userData?.totalCost || 0 }} MM 幣
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-$maxWrapperHeight: 220px;
+$maxWrapperHeight: 180px;
 
 .item-wrapper {
+  height: $maxWrapperHeight;
   max-height: $maxWrapperHeight;
   overflow: auto;
   &::-webkit-scrollbar {

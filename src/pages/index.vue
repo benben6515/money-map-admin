@@ -17,6 +17,7 @@ const go = async() => {
     const res = await getDataByEmail(email.value)
     // eslint-disable-next-line no-alert
     if (!res) return alert('Not found!')
+    if (!res.data[0]) return state.errorMessage = '找不到使用者！'
     state.userData = res.data[0]
     router.push('/me')
   }
@@ -53,7 +54,7 @@ catch (err) {
 
 <template>
   <div class="wrapper">
-    <div>
+    <div class="flex justify-center items-center min-h-screen">
       <!-- <p>
         <a
           rel="noreferrer"
@@ -61,8 +62,6 @@ catch (err) {
           target="_blank"
         >MoneyMap</a>
       </p> -->
-
-      <div py-30 />
 
       <div>
         <input

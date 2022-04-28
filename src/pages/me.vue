@@ -7,10 +7,7 @@ import RewardList from '~/components/Homepage/RewardList.vue'
 const router = useRouter()
 
 // console.log(state)
-if (!state?.userData || !state.userData.name) {
-  state.errorMessage = '找不到使用者'
-  router.push('/')
-}
+if (!state?.userData || !state.userData.name) router.push('/')
 
 const goBack = () => {
   email.value = ''
@@ -27,16 +24,15 @@ const goBack = () => {
       <!-- <p>{{ state.airtableData }}</p> -->
       <div class="flex flex-col justify-center items-center pb-12">
         <h3 class="text-mm-dark text-4xl font-bold m-4 pb-4 min-w-60">
-          HI, {{ state?.userData?.name || '--' }} 你好
+          Hello, 小船長 {{ state?.userData?.name || '--' }}
         </h3>
-        <hr class="bg-mm-dark h-3px w-20rem md:w-30rem">
 
         <div class="min-h-23rem flex flex-wrap justify-center items-start gap-4">
           <MissionList />
           <RewardList />
         </div>
 
-        <div class="flex flex-wrap justify-center items-start gap-4">
+        <!-- <div class="flex flex-wrap justify-center items-start gap-4">
           <div>
             <p class="py-3 px-8 rounded-lg bg-mm-primary text-mm-secondary text-lg font-900 text-shadow-sm">
               MM 幣存款
@@ -53,9 +49,9 @@ const goBack = () => {
               支出 {{ state?.userData?.totalCost || 0 }} MM 幣
             </p>
           </div>
-        </div>
+        </div> -->
 
-        <button class="m-3 py-1 px-6 text-md btn bg-blue-900" @click="goBack()">
+        <button class="m-6 mt-8 sm:mt-16 py-1 px-10 text-lg btn bg-mm-dark" @click="goBack()">
           返回
         </button>
       </div>

@@ -20,7 +20,7 @@ const cardTextColor = computed(() => {
 
 <template>
   <div
-    class="px-4 my-3 max-w-md min-w-xs bg-transparent rounded-lg sm:px-6"
+    class="my-3 max-w-xs min-w-xs bg-transparent rounded-lg border-5px border-mm-secondary"
   >
     <p
       :class="['font-900', cardTextColor]"
@@ -29,7 +29,7 @@ const cardTextColor = computed(() => {
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 space-y-2">
+    <ul class="item-wrapper my-4 p-2 space-y-2">
       <li
         v-for="mission in userMissionList"
         :key="mission.id"
@@ -37,18 +37,23 @@ const cardTextColor = computed(() => {
         <p
           class="bg-transparent flex items-center justify-between py-1 text-base font-bold text-gray-500 rounded-lg hover:text-gray-900 group"
         >
-          <span class="ml-3 whitespace-nowrap">{{ mission.name }}</span>
+          <span class="ml-3 whitespace-nowrap truncate">{{ mission.name }}</span>
           <span class="ml-3 whitespace-nowrap">{{ mission.missionCoins }} MM 幣</span>
         </p>
       </li>
     </ul>
+
+    <div class="bg-mm-secondary rounded-md text-2xl font-bold p-6 m--1">
+      你現在剩餘 {{ state?.userData?.totalCoins || 0 }} MM 幣
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 
-$maxWrapperHeight: 200px;
+$maxWrapperHeight: 180px;
 .item-wrapper {
+  height: $maxWrapperHeight;
   max-height: $maxWrapperHeight;
   overflow: auto;
   &::-webkit-scrollbar {

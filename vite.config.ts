@@ -47,7 +47,7 @@ export default defineConfig({
     Unocss({
       theme: {
         colors: {
-          mmDark: '#233488',
+          mmDark: '#2B4157',
           mmGray: '#737373',
           mmLight: '#F8F6F3',
           mmPrimary: '#E8BE48',
