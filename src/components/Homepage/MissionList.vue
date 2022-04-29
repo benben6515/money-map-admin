@@ -25,7 +25,7 @@ const cardTextColor = computed(() => {
     <p
       class="text-stroke-title"
       :class="['font-900', cardTextColor]"
-      text="1.6rem"
+      text="1.6rem mm-light"
       my-4
     >
       {{ cardTitle }}
@@ -44,7 +44,7 @@ const cardTextColor = computed(() => {
       </li>
     </ul>
 
-    <div class="bg-mm-secondary rounded-md text-xl font-900 p-6 m--1">
+    <div class="bg-mm-secondary rounded-md text-mm-light text-xl font-900 p-6 m--1">
       你現在剩餘 {{ state?.userData?.totalCoins || 0 }} MM 幣
     </div>
   </div>

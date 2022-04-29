@@ -38,7 +38,7 @@ if (userData) {
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 mr-2 p-4 space-y-2">
+    <ul class="item-wrapper my-4 mr-2 p-2 space-y-2">
       <li
         v-for="reward in userRewardList"
         :key="reward.id"
@@ -52,7 +52,7 @@ if (userData) {
       </li>
     </ul>
 
-    <div class="bg-mm-warning rounded-md text-xl font-900 p-6 m--1">
+    <div class="bg-mm-warning rounded-md text-mm-light text-xl font-900 p-6 m--1">
       你已經支出 {{ state?.userData?.totalCost || 0 }} MM 幣
     </div>
   </div>
