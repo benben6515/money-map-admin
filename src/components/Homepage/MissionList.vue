@@ -20,16 +20,17 @@ const cardTextColor = computed(() => {
 
 <template>
   <div
-    class="my-3 max-w-xs min-w-xs bg-transparent rounded-lg border-5px border-mm-secondary"
+    class="my-3 max-w-sm min-w-xs bg-transparent rounded-lg border-5px border-mm-secondary"
   >
     <p
+      class="text-stroke-title"
       :class="['font-900', cardTextColor]"
-      text="1.8rem"
+      text="1.6rem"
       my-4
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 p-2 space-y-2">
+    <ul class="item-wrapper my-4 mr-2 p-2 space-y-2">
       <li
         v-for="mission in userMissionList"
         :key="mission.id"
@@ -43,7 +44,7 @@ const cardTextColor = computed(() => {
       </li>
     </ul>
 
-    <div class="bg-mm-secondary rounded-md text-2xl font-bold p-6 m--1">
+    <div class="bg-mm-secondary rounded-md text-xl font-900 p-6 m--1">
       你現在剩餘 {{ state?.userData?.totalCoins || 0 }} MM 幣
     </div>
   </div>
@@ -65,7 +66,11 @@ $maxWrapperHeight: 180px;
     width: 5px;
     height: 8px;
     border-radius: 3px;
-    background-color: #1F6781;
+    background-color: #48778D;
   }
+}
+
+.text-stroke-title {
+  -webkit-text-stroke: 1px #48778D;
 }
 </style>

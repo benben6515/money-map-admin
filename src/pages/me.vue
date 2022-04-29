@@ -23,7 +23,7 @@ const goBack = () => {
 
       <!-- <p>{{ state.airtableData }}</p> -->
       <div class="flex flex-col justify-center items-center pb-12">
-        <h3 class="text-mm-dark text-4xl font-bold m-4 pb-4 min-w-60">
+        <h3 class="text-mm-dark text-2xl font-bold m-4 pb-4 min-w-60">
           Hello, 小船長 {{ state?.userData?.name || '--' }}
         </h3>
 
@@ -51,7 +51,7 @@ const goBack = () => {
           </div>
         </div> -->
 
-        <button class="m-6 mt-8 sm:mt-16 py-1 px-10 text-lg btn bg-mm-dark" @click="goBack()">
+        <button class="m-6 mt-8 sm:mt-26 py-1 px-10 text-lg btn bg-mm-dark" @click="goBack()">
           返回
         </button>
       </div>

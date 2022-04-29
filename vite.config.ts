@@ -47,12 +47,12 @@ export default defineConfig({
     Unocss({
       theme: {
         colors: {
-          mmDark: '#2B4157',
-          mmGray: '#737373',
-          mmLight: '#F8F6F3',
-          mmPrimary: '#E8BE48',
-          mmSecondary: '#1F6781',
-          mmWarning: '#BB4747',
+          mmDark: '#2B4257',
+          mmGray: '#4F4E51',
+          mmLight: '#F8F6F4',
+          mmPrimary: '#E9Bf46',
+          mmSecondary: '#42778D',
+          mmWarning: '#D86553',
         },
       },
     }),

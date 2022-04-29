@@ -28,16 +28,17 @@ if (userData) {
 
 <template>
   <div
-    class="my-3 max-w-xs min-w-xs bg-transparent rounded-lg border-5px border-mm-warning"
+    class="my-3 max-w-sm min-w-xs bg-transparent rounded-lg border-5px border-mm-warning"
   >
     <p
+      class="text-stroke-title"
       :class="['font-900', cardTextColor]"
-      text="1.8rem"
+      text="1.6rem"
       my-4
     >
       {{ cardTitle }}
     </p>
-    <ul class="item-wrapper my-4 p-2 space-y-2">
+    <ul class="item-wrapper my-4 mr-2 p-4 space-y-2">
       <li
         v-for="reward in userRewardList"
         :key="reward.id"
@@ -51,7 +52,7 @@ if (userData) {
       </li>
     </ul>
 
-    <div class="bg-mm-warning rounded-md text-2xl font-bold p-6 m--1">
+    <div class="bg-mm-warning rounded-md text-xl font-900 p-6 m--1">
       你已經支出 {{ state?.userData?.totalCost || 0 }} MM 幣
     </div>
   </div>
@@ -73,7 +74,11 @@ $maxWrapperHeight: 180px;
     width: 5px;
     height: 8px;
     border-radius: 4px;
-    background-color: #BB4747;
+    background-color: #D86553;
   }
+}
+
+.text-stroke-title {
+  -webkit-text-stroke: 1px #D86553;
 }
 </style>
