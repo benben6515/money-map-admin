@@ -28,7 +28,7 @@ if (userData) {
 
 <template>
   <div
-    class="my-3 max-w-sm min-w-xs bg-transparent rounded-lg border-5px border-mm-warning"
+    class="my-3 max-w-22rem min-w-22rem bg-mm-background rounded-lg border-5px border-mm-warning"
   >
     <p
       class="text-stroke-title"
@@ -59,7 +59,7 @@ if (userData) {
 </template>
 
 <style lang="scss" scoped>
-$maxWrapperHeight: 180px;
+$maxWrapperHeight: 200px;
 
 .item-wrapper {
   height: $maxWrapperHeight;
@@ -79,6 +79,8 @@ $maxWrapperHeight: 180px;
 }
 
 .text-stroke-title {
-  -webkit-text-stroke: 1px #D86553;
+  @media screen and (min-width: 768px) {
+    -webkit-text-stroke: 1px #D86553;
+  }
 }
 </style>

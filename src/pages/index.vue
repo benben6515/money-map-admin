@@ -19,7 +19,7 @@ const go = async() => {
     if (!res) return alert('Not found!')
     if (!res.data[0]) return state.errorMessage = '找不到使用者！'
     state.userData = res.data[0]
-    router.push('/me')
+    router.push('/info')
   }
   catch (err) {
     state.errorMessage = '忙碌中，請稍後再試！'

@@ -22,7 +22,7 @@ const goBack = () => {
       <div py-5 />
 
       <!-- <p>{{ state.airtableData }}</p> -->
-      <div class="flex flex-col justify-center items-center pb-12">
+      <div class="flex flex-col justify-center items-center pb-8">
         <h3 class="text-mm-dark text-2xl font-bold m-4 pb-4 min-w-60">
           Hello, 小船長 {{ state?.userData?.name || '--' }}
         </h3>

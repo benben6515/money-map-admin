@@ -20,7 +20,7 @@ const cardTextColor = computed(() => {
 
 <template>
   <div
-    class="my-3 max-w-sm min-w-xs bg-transparent rounded-lg border-5px border-mm-secondary"
+    class="my-3 max-w-22rem min-w-22rem bg-mm-background rounded-lg border-5px border-mm-secondary"
   >
     <p
       class="text-stroke-title"
@@ -52,7 +52,7 @@ const cardTextColor = computed(() => {
 
 <style lang="scss" scoped>
 
-$maxWrapperHeight: 180px;
+$maxWrapperHeight: 200px;
 .item-wrapper {
   height: $maxWrapperHeight;
   max-height: $maxWrapperHeight;
@@ -71,6 +71,8 @@ $maxWrapperHeight: 180px;
 }
 
 .text-stroke-title {
-  -webkit-text-stroke: 1px #48778D;
+  @media screen and (min-width: 768px) {
+    -webkit-text-stroke: 1px #48778D;
+  }
 }
 </style>

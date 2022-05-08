@@ -53,6 +53,7 @@ export default defineConfig({
           mmPrimary: '#E9Bf46',
           mmSecondary: '#42778D',
           mmWarning: '#D86553',
+          mmBackground: '#EFE5D5',
         },
       },
     }),
